@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="LocalSuite" verbose="1">
+	<test name="ParticularTest" group-by-instances="true">
+	<!-- Note "group-by-instances" and order of method run -->
+		<classes>
+			<class name="kill.me.later.SampleFactory"></class>
+		</classes>
+	</test>
+</suite>

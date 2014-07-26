@@ -1,0 +1,10 @@
+<!DOCTYPE suite SYSTEM "http://beust.com/testng/testng-1.0.dtd" >
+<suite name="DynamicTestPlanTestSuite" verbose="1" >
+      
+    <test name="DynamicTestPlanTest" preserve-order="true">
+    <!-- Note "preserve-order" and order of method run -->
+    <classes>
+        <class name="test.dynamic.plan.DynamicTestPlanTest"></class>
+    </classes>
+    </test>
+</suite>

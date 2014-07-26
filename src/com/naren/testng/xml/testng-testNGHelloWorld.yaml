@@ -1,0 +1,8 @@
+name: SuiteConfiguration
+tests:
+  - name: TestNGHelloWorld
+    verbose: 2
+    parameters: { name: Ram }
+    classes:
+      - com.naren.testng.TestNGHelloWorld
+

@@ -1,0 +1,16 @@
+<!DOCTYPE suite SYSTEM "http://beust.com/testng/testng-1.0.dtd" >
+<suite name="PriorityTestSuite" verbose="1" >
+
+    <listeners>
+        <listener class-name="test.priority.listener.PriorityInterceptor" />
+    </listeners>
+   
+    <test name="PriorityTestPlan" preserve-order="true">
+    <!-- Note "preserve-order" and order of method run with and without listener -->
+    <classes>
+        <class name="test.priority.listener.PriorityTestPlan"></class>
+    </classes>
+    </test>
+    
+</suite> 
+

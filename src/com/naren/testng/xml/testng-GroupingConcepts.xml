@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Tests Grouping Concepts"> <!-- Suites should be based on your business Modules/Sub System -->
+<!-- <parameter name="myName" value="Naren" /> -->
+	<test verbose="2" name="Package Group" preserve-order="false"> 
+	<!-- Tests should be based on Business Units -->
+		<parameter name="name" value="Ram" />
+		<packages><!-- Package Groups -->
+			<package name="com.naren.testng" />
+		</packages>
+	</test>
+
+
+	<test verbose="2" name="Class Groups" preserve-order="false">
+		<classes><!-- Class Groups -->
+			<class name="com.naren.testng.TestConfiguration" />
+			<class name="com.naren.testng.SuiteConfiguration" />
+		</classes>
+	</test>
+
+	<test verbose="2" name="Method Group">
+		<classes>
+			<class name="com.naren.testng.TestConfiguration">
+				<methods> <!-- Method Groups -->
+					<include name="testTwo" />
+				</methods>
+			</class>
+			<class name="com.naren.testng.SuiteConfiguration" />
+		</classes>
+	</test>
+
+	<test verbose="2" name="Method Group with WildCards">
+		<classes>
+			<class name="com.naren.testng.TestConfiguration">
+				<methods> <!-- Method Groups with WildCards -->
+					<include name=".*Two" /> 
+					<!-- Anything is matched by .* and not *, though regular expression is used. -->
+				</methods>
+			</class>
+			<class name="com.naren.testng.SuiteConfiguration" />
+		</classes>
+	</test>
+
+	<test verbose="2" name="Custom Groups">
+		<groups><!-- Custom Groups -->
+			<run>
+				<exclude name="slow" />
+				<include name="fast" />
+			</run>
+		</groups>
+		<classes>
+			<class name="com.naren.testng.TestConfiguration" />
+			<class name="com.naren.testng.SuiteConfiguration" />
+		</classes>
+	</test>
+
+	<test verbose="2" name="Custom Group With WildCards">
+		<groups> <!-- Custom Groups with Wild Cards -->
+			<run>
+				<exclude name="window.*" />
+				<include name="unix.*" />
+			</run>
+		</groups>
+		<classes>
+			<class name="com.naren.testng.TestConfiguration" />
+			<class name="com.naren.testng.SuiteConfiguration" />
+		</classes>
+	</test>
+
+	
+	<test verbose="2" name="Group Of Groups">
+		<groups> <!-- Group of Groups -->
+			<define name="allRelease">
+				<include name="release1.*" />
+				<include name="release2.*" />
+			</define>
+			<run>
+				<include name="allRelese" />
+			</run>
+		</groups>
+		<classes>
+			<class name="com.naren.testng.TestConfiguration" />
+			<class name="com.naren.testng.SuiteConfiguration" />
+		</classes>
+	</test>
+	
+	<test verbose="2" name="Partial Group or Class Level Group">
+		<groups> <!-- Partial Groups or Class level Group -->
+			<run>
+				<include name="allTests" />
+			</run>
+		</groups>
+		<classes>
+			<class name="com.naren.testng.TestConfiguration" />
+			<class name="com.naren.testng.SuiteConfiguration" />
+		</classes>
+	</test>
+
+  <test name="Group with Group Dependency">
+	  <groups>
+	  	<run>
+			<include name="slow" />
+			<include name="fast" />
+		</run>
+	    <dependencies>
+	      <group name="slow" depends-on="fast" />
+	    </dependencies>
+	  </groups>
+	<classes>
+			<class name="com.naren.testng.TestConfiguration" />
+			<class name="com.naren.testng.SuiteConfiguration" />
+	</classes>
+  </test>
+	
+</suite> 
